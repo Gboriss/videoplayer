@@ -119,13 +119,46 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   return newRequire;
 })({"video.js":[function(require,module,exports) {
 var video = document.querySelector('.player-video');
+var progress = document.querySelector('.progress');
+var progressFilled = document.querySelector('.filled-progress');
+var toggle = document.querySelector('.toggle-play');
+var skippers = document.querySelectorAll('[data-skip]');
+var ranges = document.querySelectorAll('.player-slider');
 
 function togglePlay() {
   var playState = video.paused ? 'play' : 'pause';
   video[playState]();
 }
 
+function updateButton() {
+  var togglePlayBtn = document.querySelector('.toggle-play');
+  this.paused ? togglePlayBtn.innerHTML = "<svg class=\"\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\"><title>play</title><path d=\"M3 2l10 6-10 6z\"></path></svg>" : togglePlayBtn.innerHTML = "<svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\"><title>pause</title><path d=\"M2 2h5v12H2zm7 0h5v12H9z\"></path></svg>";
+}
+
+function skip() {
+  video.currentTime += parseFloat(this.dataset.skip);
+}
+
+function rangeUpdate() {
+  video[this.name] = this.value;
+  console.log(this.value);
+  console.log(this.name);
+}
+
 video.addEventListener('click', togglePlay);
+video.addEventListener('play', updateButton);
+video.addEventListener('pause', updateButton); // video.addEventListener('timeupdate', progressUpdate)
+
+toggle.addEventListener('click', togglePlay);
+skippers.forEach(function (button) {
+  return button.addEventListener('click', skip);
+});
+ranges.forEach(function (range) {
+  return range.addEventListener('change', rangeUpdate);
+});
+ranges.forEach(function (range) {
+  return range.addEventListener('mousemove', rangeUpdate);
+});
 },{}],"C:/Users/Xiaomi/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -154,7 +187,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57018" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50992" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
