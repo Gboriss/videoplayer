@@ -4,6 +4,7 @@ const progress = document.querySelector('.progress')
 const progressFilled = document.querySelector('.filled-progress')
 const toggle = document.querySelector('.toggle-play')
 const skippers = document.querySelectorAll('[data-skip]')
+<<<<<<< HEAD
 const time = document.querySelector('.time')
 const load = document.querySelector('.load')
 const ranges = document.querySelectorAll('.player-slider')
@@ -33,6 +34,10 @@ function setSize(W, H) {
 }
 
 // setSize(window.innerWidth, window.innerHeight)
+=======
+
+const ranges = document.querySelectorAll('.player-slider')
+>>>>>>> 23da28a9a0976830ac02405859304854b70de6f7
 
 function togglePlay() {
     const playState = video.paused ? 'play' : 'pause'
@@ -55,6 +60,7 @@ function skip() {
 
 }
 
+<<<<<<< HEAD
 function rangeUpdate() {
     video[this.name] = this.value
     // console.log(this.value)
@@ -87,25 +93,52 @@ function progressUpdate() {
 
 function scrub(e) { 
     video.currentTime = (e.offsetX / progress.offsetWidth) * video.duration
+=======
+function updateButton() {
+    const togglePlayBtn = document.querySelector('.toggle-play')
+    this.paused 
+        ?
+        togglePlayBtn.innerHTML = `<svg class="" width="16" height="16" viewBox="0 0 16 16"><title>play</title><path d="M3 2l10 6-10 6z"></path></svg>`  
+        :
+        togglePlayBtn.innerHTML = `<svg width="16" height="16" viewBox="0 0 16 16"><title>pause</title><path d="M2 2h5v12H2zm7 0h5v12H9z"></path></svg>`
+  }
+
+function skip() {
+  video.currentTime += parseFloat(this.dataset.skip)
+
+}
+
+function rangeUpdate() {
+    video[this.name] = this.value
+    console.log(this.value)
+    console.log(this.name)
+>>>>>>> 23da28a9a0976830ac02405859304854b70de6f7
 }
 
 
 video.addEventListener('click', togglePlay)
 video.addEventListener('play', updateButton)
 video.addEventListener('pause', updateButton)
+<<<<<<< HEAD
 video.addEventListener('timeupdate', progressUpdate)
 video.addEventListener('timeupdate', videoTime)
 video.addEventListener('loadedmetadata', loadTime)
 // secondsUpdated
 // loadedmetadata
+=======
+// video.addEventListener('timeupdate', progressUpdate)
+>>>>>>> 23da28a9a0976830ac02405859304854b70de6f7
 
 toggle.addEventListener('click', togglePlay)
 skippers.forEach(button => button.addEventListener('click', skip))
 ranges.forEach(range => range.addEventListener('change', rangeUpdate))
 ranges.forEach(range => range.addEventListener('mousemove', rangeUpdate))
+<<<<<<< HEAD
 
 let mousedown = false
 progress.addEventListener('click', scrub)
 progress.addEventListener('mousemove', (e) => mousedown && scrub(e))
 progress.addEventListener('mousedown', () => mousedown = true)
 progress.addEventListener('mouseup', () => mousedown = false)
+=======
+>>>>>>> 23da28a9a0976830ac02405859304854b70de6f7
