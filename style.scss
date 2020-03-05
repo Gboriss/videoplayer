@@ -10,15 +10,20 @@ body {
   margin: 0;
   padding: 0;
   
-  background-image: url('./assets/images/triangles-download.png');
+  background-image: url('./assets/images/triangles-dark.png');
   background-size: 100% auto;
   background-repeat: repeat-y;
 }
-
+.player-video {
+  width: 1000px;
+  height: 74vh;
+}
 .player {
   position: relative;
   overflow: hidden;
   max-width: 800px;
+  // width: 1000px;
+  // height: 80vh;
   border: 6px solid rgba(255, 255, 255, 0.2);
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.1), 0 3px 3px rgba(0, 0, 0, 0.1);
 
@@ -64,6 +69,16 @@ body {
   }
 }
 
+.time,
+.load {
+  background: none;
+  border: 0;
+  color: white;
+  text-align: center;
+  max-width: 60px;
+  padding: 5px 8px;
+}
+
 .player-slider {
   width: 10px;
   height: 30px;
@@ -103,7 +118,8 @@ body {
   width: 50%;
   background: #fff;
   flex: 0;
-  flex-basis: 50%;
+  flex-basis: 0;
+  cursor: pointer;
 }
 
 .sliders {
