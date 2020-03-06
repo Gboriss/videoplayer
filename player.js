@@ -9,32 +9,32 @@ const time = document.querySelector('.time')
 const load = document.querySelector('.load') 
 const ranges = document.querySelectorAll('.player-slider')
 
-let aspect = 16 / 9
-function setSize(W, H) {
-	if (!video) return
+// let aspect = 16 / 9
+// function setSize(W, H) {
+// 	if (!video) return
 
-	document.body.style.width = W + 'px'
-	document.body.style.height = H + 'px'
+// 	document.body.style.width = W + 'px'
+// 	document.body.style.height = H + 'px'
 
-	if (W / H < aspect) {
-		video.height = H
-		video.width = H * aspect
+// 	if (W / H < aspect) {
+// 		video.height = H
+// 		video.width = H * aspect
 	
-		video.style.top = 0
-		video.style.left = (W - video.width) / 2 + 'px'
-	} else {
-		video.width = W
-		video.height = W * aspect
+// 		video.style.top = 0
+// 		video.style.left = (W - video.width) / 2 + 'px'
+// 	} else {
+// 		video.width = W
+// 		video.height = W * aspect
 	
-		video.style.left = 0
-		video.style.top = (H - video.height) / 2 + 'px'
-	}
+// 		video.style.left = 0
+// 		video.style.top = (H - video.height) / 2 + 'px'
+// 	}
 
-}
+// }
 
-setSize(window.innerWidth, window.innerHeight)
+// setSize(window.innerWidth, window.innerHeight)
 
-video.addEventListener('resize', () => setSize(window.innerWidth, window.innerHeight))
+// video.addEventListener('resize', () => setSize(window.innerWidth, window.innerHeight))
 
 
 function togglePlay() {
@@ -61,18 +61,20 @@ function rangeUpdate() {
 
 function videoTime() {
     let duration = video.duration.toFixed(1)
-    let m = duration % 60
-    let countdown = Math.floor(duration - video.currentTime) + ' : ' +  (m < 10 ? '00' : '')
-    let f = Math.floor(duration - video.currentTime)
-    let test = (f > 1 ? f : '00')  + ' : ' + (f < 10 ? '0' + f : f) 
 
+    let f = duration - video.currentTime
+    let minutes = Math.floor( (f / 60) % 60 )
+    let seconds = Math.floor(f % 60 )
+    let test = (minutes > 0 ? minutes : '0')  + ' : ' + (seconds > 0 ? seconds : '0')
     load.innerText = test
 }
 
 function loadTime() {
-    let duration = video.duration.toFixed(1);
-    let m = duration % 60
-    let totalTime = Math.floor(duration / 60) + ' : ' + (m < 10 ? '00' : duration)
+    let duration = video.duration.toFixed(1)
+    let minutes = Math.floor( (duration / 60) % 60 )
+    let seconds = Math.floor(duration % 60 )
+    let totalTime = minutes + ' : ' + seconds
+
     time.innerText = totalTime
 }
 
@@ -106,7 +108,7 @@ ranges.forEach(range => range.addEventListener('change', rangeUpdate))
 ranges.forEach(range => range.addEventListener('mousemove', rangeUpdate))
 
 let mousedown = false;
-progress.addEventListener('click', scrub);
-progress.addEventListener('mousemove', (e) => mousedown && scrub(e));
-progress.addEventListener('mousedown', () => mousedown = true);
-progress.addEventListener('mouseup', () => mousedown = false);
+progress.addEventListener('click', scrub)
+progress.addEventListener('mousemove', (e) => mousedown && scrub(e))
+progress.addEventListener('mousedown', () => mousedown = true)
+progress.addEventListener('mouseup', () => mousedown = false)
