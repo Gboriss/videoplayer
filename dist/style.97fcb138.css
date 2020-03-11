@@ -53,8 +53,12 @@ body {
   border: 0;
   color: white;
   text-align: center;
-  max-width: 60px;
+  max-width: 90px;
   padding: 5px 8px;
+}
+
+.sliderOne {
+  float: left;
 }
 
 .player-slider {
@@ -74,10 +78,6 @@ body {
   transition: all 0.3s;
 }
 
-.player-controls > * {
-  flex: 1;
-}
-
 .progress {
   display: flex;
   position: relative;
@@ -89,9 +89,7 @@ body {
 }
 
 .filled-progress {
-  width: 50%;
   background: #fff;
-  flex: 0;
   flex-basis: 0;
   cursor: pointer;
 }
@@ -99,6 +97,13 @@ body {
 .sliders {
   display: flex;
   max-width: 200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+i {
+  color: #fff;
 }
 
 input[type=range] {
@@ -115,27 +120,12 @@ input[type=range] {
 
 input::-webkit-slider-thumb {
   -webkit-appearance: none;
-  /* Override default look */
+  border-radius: 6px;
   appearance: none;
-  width: 25px;
-  /* Set a specific slider handle width */
-  height: 25px;
-  /* Slider handle height */
-  background: #4CAF50;
-  /* Green background */
+  width: 15px;
+  height: 15px;
+  background: #272444;
   cursor: pointer;
-  /* Cursor on hover */
-}
-
-input::-moz-range-thumb {
-  width: 25px;
-  /* Set a specific slider handle width */
-  height: 25px;
-  /* Slider handle height */
-  background: #4CAF50;
-  /* Green background */
-  cursor: pointer;
-  /* Cursor on hover */
 }
 
 /*# sourceMappingURL=/style.97fcb138.css.map */
