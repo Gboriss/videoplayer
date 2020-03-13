@@ -3,38 +3,11 @@ const video = document.querySelector('.player-video')
 const progress = document.querySelector('.progress')
 const progressFilled = document.querySelector('.filled-progress')
 const toggle = document.querySelector('.toggle-play')
-const skippers = document.querySelectorAll('[data-skip]')
+const skippers = document.querySelectorAll('.player-btn')
 
 const time = document.querySelector('.time')
 const load = document.querySelector('.load') 
 const ranges = document.querySelectorAll('.player-slider')
-
-// let aspect = 16 / 9
-// function setSize(W, H) {
-// 	if (!video) return
-
-// 	document.body.style.width = W + 'px'
-// 	document.body.style.height = H + 'px'
-
-// 	if (W / H < aspect) {
-// 		video.height = H
-// 		video.width = H * aspect
-	
-// 		video.style.top = 0
-// 		video.style.left = (W - video.width) / 2 + 'px'
-// 	} else {
-// 		video.width = W
-// 		video.height = W * aspect
-	
-// 		video.style.left = 0
-// 		video.style.top = (H - video.height) / 2 + 'px'
-// 	}
-
-// }
-
-// setSize(window.innerWidth, window.innerHeight)
-
-// video.addEventListener('resize', () => setSize(window.innerWidth, window.innerHeight))
 
 
 function togglePlay() {

@@ -47,18 +47,22 @@ body {
   cursor: pointer;
 }
 
-.time,
 .load {
+  background: none;
+  border: 0;
+  text-align: center;
+  color: white;
+  max-width: 190px;
+  padding: 5px 8px;
+}
+
+.time {
   background: none;
   border: 0;
   color: white;
   text-align: center;
-  max-width: 90px;
+  width: 90px;
   padding: 5px 8px;
-}
-
-.sliderOne {
-  float: left;
 }
 
 .player-slider {
@@ -96,10 +100,16 @@ body {
 
 .sliders {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
   max-width: 200px;
+}
+
+.timer {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-left: auto;
 }
 
 i {

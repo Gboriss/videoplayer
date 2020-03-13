@@ -15,8 +15,6 @@ body {
   background-repeat: repeat-y;
 }
 .player-video {
-  // width: 1000px;
-  // height: 74vh;
   width: 100%;
   height: auto;
   max-height: 100%;
@@ -25,8 +23,6 @@ body {
   position: relative;
   overflow: hidden;
   max-width: 1000px;
-  // width: 1000px;
-  // height: 80vh;
   border: 6px solid rgba(255, 255, 255, 0.2);
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.1), 0 3px 3px rgba(0, 0, 0, 0.1);
 
@@ -40,16 +36,6 @@ body {
     }
   }
 }
-
-// .player:-webkit-full-screen,
-// .player:fullscreen {
-//   max-width: none;
-//   width: 100%;
-// }
-
-// .play-btn {
-//   flex: 1;
-// }
 
 .player-btn {
   background: none;
@@ -65,29 +51,28 @@ body {
 
   &:hover,
   &:focus {
-    // border-color: $accent-color;
     background: rgba(255, 255, 255, .2);
     outline: none;
     cursor: pointer;
   }
 }
 
-.time,
 .load {
+  background: none;
+  border: 0;
+  text-align: center;
+  color: white;
+  max-width: 190px;
+  padding: 5px 8px;
+}
+
+.time {
   background: none;
   border: 0;
   color: white;
   text-align: center;
-  max-width: 90px;
+  width: 90px;
   padding: 5px 8px;
-}
-
-.load {
-  // margin-right: 20px;
-}
-
-.sliderOne {
-  float: left;
 }
 
 .player-slider {
@@ -109,10 +94,6 @@ body {
   transition: all 0.3s;
 }
 
-// .player-controls > * {
-//   flex: 1;
-// }
-
 .progress {
   display: flex;
   position: relative;
@@ -126,25 +107,25 @@ body {
 }
 
 .filled-progress {
-  // width: 50%;
   background: #fff;
-  // flex: 0;
   flex-basis: 0;
   cursor: pointer;
 }
 
-// .container {
-//   display: flex;
-//   justify-content: space-between;
-//   align-items: center;
-// }
 
 .sliders {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
   max-width: 200px;
+
+}
+
+.timer {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-left: auto;
 }
 
 i {
@@ -162,7 +143,6 @@ input[type=range] {
   transition: opacity .15s ease-in-out;
 }
 
-
 input::-webkit-slider-thumb {
   -webkit-appearance: none;
   border-radius: 6px;
@@ -172,10 +152,3 @@ input::-webkit-slider-thumb {
   background: #272444; 
   cursor: pointer; 
 }
-
-// input::-moz-range-thumb {
-//   width: 25px; 
-//   height: 25px; 
-//   background: #4CAF50; 
-//   cursor: pointer; 
-// }
