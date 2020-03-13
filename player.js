@@ -24,9 +24,6 @@ function updateButton() {
         togglePlayBtn.innerHTML = `<svg width="16" height="16" viewBox="0 0 16 16"><title>pause</title><path d="M2 2h5v12H2zm7 0h5v12H9z"></path></svg>`
 }
 
-function skip() {
-  video.currentTime += parseFloat(this.dataset.skip)
-}
 
 function rangeUpdate() {
   video[this.name] = this.value
@@ -66,6 +63,11 @@ function skip() {
   }
 
 // Event listeners
+document.addEventListener('keydown', function(e) {
+  e.keyCode === 32 && togglePlay()
+})
+
+
 video.addEventListener('click', togglePlay)
 video.addEventListener('play', updateButton)
 video.addEventListener('pause', updateButton)
