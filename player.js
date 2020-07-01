@@ -8,6 +8,7 @@ const skippers = document.querySelectorAll('.player-btn')
 const time = document.querySelector('.time')
 const load = document.querySelector('.load') 
 const ranges = document.querySelectorAll('.player-slider')
+const imgCorgi = document.getElementById('imgCorgi')
 
 
 function togglePlay() {
@@ -79,6 +80,11 @@ video.addEventListener('loadedmetadata', loadTime)
 
 toggle.addEventListener('click', togglePlay)
 skippers.forEach(button => button.addEventListener('click', skip))
+imgCorgi.addEventListener('click', () => {
+  imgCorgi.style.display = 'none'
+  video.play()
+})
+
 ranges.forEach(range => range.addEventListener('change', rangeUpdate))
 ranges.forEach(range => range.addEventListener('mousemove', rangeUpdate))
 

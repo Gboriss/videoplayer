@@ -34,9 +34,25 @@ body {
     .player-controls {
       transform: translateY(0);
     }
+    @media(max-device-width: 760px) {
+      .player-controls {
+        background-color: #000;
+      }
+    }
   }
 }
 
+
+img {
+  display: none;
+}
+@media(max-device-width: 760px) {
+  img {
+    display: block;
+    position: absolute;
+    width: 100%;
+  }
+}
 .player-btn {
   background: none;
   border: 0;
@@ -104,6 +120,8 @@ body {
   
   background: rgba(0, 0, 0, 0.5);
   transition: height 0.3s;
+  cursor: pointer;
+
 }
 
 .filled-progress {
@@ -121,11 +139,23 @@ body {
 
 }
 
+@media(max-width: 760px) {
+  .sliders {
+    display: none;
+  }
+}
+
 .timer {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-left: auto;
+}
+
+@media(max-width: 760px) {
+  .player-slider {
+    display: none;
+  }
 }
 
 i {
